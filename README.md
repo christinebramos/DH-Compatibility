@@ -21,6 +21,6 @@ The final compatibility scores for each applicant is determined by multiplying e
 
 For future iterations, input validation and algorithm improvements will be made for better accuracy and efficiency.
 
-If you have any questions or concerns regarding this project, feel free to email me at cbramos6@hawaii.edu.
+If you have any questions or concerns regarding this project, please feel free to email me at christine_ramos@datahouse.com.
 
 Thank you!
