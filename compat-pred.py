@@ -75,6 +75,7 @@ with open('input.json', 'r') as f:
     weight_sum = intell_conv + strength_conv + end_conv + spicy_conv
 
     # Input Validation
+    # Ideal: Include validation for integer only inputs
     if weight_sum != 1:
         print("\nERROR: Sum of attribute weights do not equal to 100. Please select different values.")
         intell_weight = int(input("Intelligence: "))
@@ -82,7 +83,7 @@ with open('input.json', 'r') as f:
         end_weight = int(input("Mental Endurance: "))
         spicy_weight = int(input("Spicy Food Tolerance: "))
 
-    # Declare applicant variables
+    # Declare applicant arrays
     applicants_compat_list = []
     applicants_names = []
     applicants_intell = []
@@ -140,6 +141,10 @@ with open('input.json', 'r') as f:
     # Calculate overall team compatibility score for comparison with applicant
     team_overall = (team_intell_compat + team_strength_compat + team_end_compat + team_spicy_compat) / 4
 
+    # Keep compatibility score within range [0,1]
+    if team_overall > 1:
+        team_overall = 1
+
     # Organize attribute scores to be in the same array as applicant name
     applicant1 = []
     applicant2 = []
@@ -154,11 +159,19 @@ with open('input.json', 'r') as f:
     applicant2_overall = (applicants_intell[1] + applicants_strength[1] + applicants_end[1] + applicants_spicy[1]) / 4
     applicant3_overall = (applicants_intell[2] + applicants_strength[2] + applicants_end[2] + applicants_spicy[2]) / 4
 
+    # Keep compatibility score within range [0,1]
+    if applicant1_overall > 1:
+        applicant1_overall = 1
+    if applicant2_overall > 1:
+        applicant2_overall = 1
+    if applicant3_overall > 1:
+        applicant3_overall = 1
+
     # Create JSON file for final compatibility scores
     with open('final_compat_scores.json', 'w') as output:
         final_compat_list = {}
         
-        final_compat_list['team compatibility score'] = []
+        final_compat_list['team compatibility score'] = [] 
         final_compat_list['team compatibility score'].append(team_overall)
 
         final_compat_list['applicant1'] = []
