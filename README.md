@@ -19,6 +19,8 @@ Once completed, the final compatibility scores for each applicant can be found i
 # Notes
 The final compatibility scores for each applicant is determined by multiplying each weight value to their respective attribute scores that is divided by an averaged team attribute score.
 
+For future iterations, input validation and algorithm improvements will be made for better accuracy and efficiency.
+
 If you have any questions or concerns regarding this project, feel free to email me at cbramos6@hawaii.edu.
 
 Thank you!
